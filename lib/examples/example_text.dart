@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class TextExample extends StatefulWidget {
   const TextExample({super.key, required this.title});
@@ -21,7 +20,7 @@ class _TextExampleState extends State<TextExample> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               const Text(
                 "안녕",
                 style: TextStyle(
@@ -30,7 +29,7 @@ class _TextExampleState extends State<TextExample> {
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 width: 120,
                 height: 70,
@@ -47,7 +46,7 @@ class _TextExampleState extends State<TextExample> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 width: 120,
                 height: 60,
@@ -64,7 +63,7 @@ class _TextExampleState extends State<TextExample> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               const Text(
                 'FLUTTER',
                 style: TextStyle(
@@ -73,7 +72,7 @@ class _TextExampleState extends State<TextExample> {
                     decoration: TextDecoration.overline,
                     decorationThickness: 5),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               const Text(
                 'FLUTTER',
                 style: TextStyle(
@@ -105,15 +104,6 @@ class _TextExampleState extends State<TextExample> {
                     fontSize: 35,
                     color: Colors.grey,
                   ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              Text(
-                '구글폰트',
-                style: GoogleFonts.getFont(
-                  'Do Hyeon',
-                  textStyle: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 20),
                 ),
               ),
               const SizedBox(height: 20),
