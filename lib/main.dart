@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_widget_example/examples/example_button.dart';
-
-import 'examples/example_image.dart';
+import 'package:flutter_application_widget_example/test/example_button.dart';
+import 'package:flutter_application_widget_example/test/example_chart.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const ImageExample(title: 'Flutter Demo Home Page'),
+      home: const ChartExample(title: "hello"),
     );
   }
 }

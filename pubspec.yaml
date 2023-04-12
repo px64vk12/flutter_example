@@ -18,8 +18,8 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  syncfusion_flutter_charts: ^21.1.39
   google_fonts: ^3.0.1
-  charts_painter: latest
 
 flutter:
 
