@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class ChartExample extends StatefulWidget {
   const ChartExample({super.key, required this.title});
@@ -12,12 +11,11 @@ class ChartExample extends StatefulWidget {
 //https://www.syncfusion.com/flutter-widgets/flutter-charts/chart-types/bar-chart?utm_source=pubdev&utm_medium=listing&utm_campaign=flutter-charts-pubdev
 
 class _ChartExampleState extends State<ChartExample> {
-  List<_ChartData> data = [
-    _ChartData('Jan', 35),
-    _ChartData('Feb', 28),
-    _ChartData('Mar', 34),
-    _ChartData('Apr', 32),
-    _ChartData('May', 40)
+  List<ChartData> chartData = [
+    ChartData('Germany', 128, 129, 101),
+    ChartData('Russia', 123, 92, 93),
+    ChartData('Norway', 107, 106, 90),
+    ChartData('USA', 87, 95, 71),
   ];
   @override
   Widget build(BuildContext context) {
@@ -25,32 +23,36 @@ class _ChartExampleState extends State<ChartExample> {
         appBar: AppBar(
           title: const Text('Syncfusion Flutter chart'),
         ),
-        body: Column(children: [
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: SfCartesianChart(
-                primaryXAxis: CategoryAxis(),
-                primaryYAxis:
-                    NumericAxis(minimum: 0, maximum: 40, interval: 10),
-                title: ChartTitle(text: 'Half yearly sales analysis'),
-                legend: Legend(isVisible: true),
-                tooltipBehavior: TooltipBehavior(enable: true),
-                series: <ChartSeries<_ChartData, String>>[
-                  AreaSeries<_ChartData, String>(
-                      dataSource: data,
-                      xValueMapper: (_ChartData data, _) => data.x,
-                      yValueMapper: (_ChartData data, _) => data.y,
-                      name: 'Gold',
-                      color: Color.fromRGBO(8, 142, 255, 1))
-                ]),
-          ),
-        ]));
+        body: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Center(
+              child: Container(
+                  height: 500,
+                  child: SfCartesianChart(
+                      primaryXAxis: CategoryAxis(),
+                      series: <CartesianSeries>[
+                        ColumnSeries<ChartData, String>(
+                            dataSource: chartData,
+                            xValueMapper: (ChartData data, _) => data.x,
+                            yValueMapper: (ChartData data, _) => data.y),
+                        ColumnSeries<ChartData, String>(
+                            dataSource: chartData,
+                            xValueMapper: (ChartData data, _) => data.x,
+                            yValueMapper: (ChartData data, _) => data.y1),
+                        ColumnSeries<ChartData, String>(
+                            dataSource: chartData,
+                            xValueMapper: (ChartData data, _) => data.x,
+                            yValueMapper: (ChartData data, _) => data.y2)
+                      ]))),
+        ));
   }
 }
 
-class _ChartData {
-  _ChartData(this.x, this.y);
+class ChartData {
+  ChartData(this.x, this.y, this.y1, this.y2);
 
   final String x;
   final double y;
+  final double? y1;
+  final double? y2;
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_widget_example/test/example_button.dart';
 import 'package:flutter_application_widget_example/test/example_chart.dart';
+import 'package:flutter_application_widget_example/test/example_progress.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const ChartExample(title: "hello"),
+      home: const ProgressExample(title: "hello"),
     );
   }
 }
